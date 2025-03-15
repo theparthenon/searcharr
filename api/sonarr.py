@@ -8,7 +8,7 @@ https://github.com/toddrob99/searcharr
 import time
 from urllib.parse import quote
 
-from api_client import ApiClient
+from .api_client import ApiClient
 
 
 class Sonarr(ApiClient):

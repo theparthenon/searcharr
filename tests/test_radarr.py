@@ -3,8 +3,8 @@ import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from radarr import Radarr
-import settings
+from api.radarr import Radarr
+from config import settings
 
 def test_radarr_functionality():
     radarr = Radarr(settings.radarr_url, settings.radarr_api_key, verbose=True)

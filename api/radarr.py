@@ -7,7 +7,7 @@ https://github.com/toddrob99/searcharr
 """
 from urllib.parse import quote
 
-from api_client import ApiClient
+from .api_client import ApiClient
 
 
 class Radarr(ApiClient):
