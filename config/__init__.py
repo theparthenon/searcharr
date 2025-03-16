@@ -1,7 +1,7 @@
 """
 Searcharr
 Sonarr, Radarr & Readarr Telegram Bot
-API Module
+Configuration Module
 By Todd Roberts
 https://github.com/toddrob99/searcharr
 """
