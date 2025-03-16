@@ -11,7 +11,7 @@ from bot.searcharr_bot import SearcharrBot
 from config import settings
 from bot.utils.log import set_up_logger
 
-__version__ = "3.3.0"
+__version__ = "3.4.0"
 
 def parse_args():
     parser = argparse.ArgumentParser(
