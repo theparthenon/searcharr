@@ -12,9 +12,9 @@ from bot.utils.auth import authenticated
 from bot.utils.text import strip_entities, translate
 from bot.utils.formatting import prepare_response
 from bot.utils.log import set_up_logger
-from config import settings
+import settings
 
-logger = set_up_logger("commands.movie", False, False)
+logger = set_up_logger("commands.movie")
 
 
 async def movie_command(update, context, bot):

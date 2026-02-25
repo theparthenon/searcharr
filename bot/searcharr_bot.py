@@ -14,7 +14,7 @@ from bot.utils.log import set_up_logger
 from bot.utils.database import init_db
 from bot.commands import register_commands
 from bot.callbacks import main_callback_handler
-from config import settings
+import settings
 from config.language import load_language
 
 
@@ -31,7 +31,7 @@ class SearcharrBot:
         """
         self.dev_mode = dev_mode
         self.token = token
-        self.logger = set_up_logger("bot", verbose, False)
+        self.logger = set_up_logger("bot")
         self.logger.info("Initializing SearcharrBot...")
         
         # Initialize database

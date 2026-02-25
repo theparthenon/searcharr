@@ -12,10 +12,10 @@ from threading import Lock
 
 from bot.utils.log import set_up_logger
 
-logger = set_up_logger("database", False, False)
+logger = set_up_logger("database")
 
-DBPATH = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))), "data")
-DBFILE = "db"
+DBPATH = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__)))), "data")
+DBFILE = "searcharr.db"
 DBLOCK = Lock()
 
 
@@ -69,8 +69,18 @@ def get_connection():
     return (con, cur)
 
 
+def _migrate_db_filename():
+    """Rename data/db -> data/searcharr.db for anyone who ran PR #100 briefly."""
+    old_path = os.path.join(DBPATH, "db")
+    new_path = os.path.join(DBPATH, DBFILE)
+    if os.path.exists(old_path) and not os.path.exists(new_path):
+        os.rename(old_path, new_path)
+        logger.info(f"Migrated database file from {old_path} to {new_path}")
+
+
 def init_db():
     """Initialize the database schema."""
+    _migrate_db_filename()
     con, cur = get_connection()
     queries = [
         """CREATE TABLE IF NOT EXISTS conversations (

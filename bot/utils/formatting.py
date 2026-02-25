@@ -12,7 +12,7 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from bot.utils.text import translate
 from bot.utils.log import set_up_logger
 
-logger = set_up_logger("formatting", False, False)
+logger = set_up_logger("formatting")
 
 
 def prepare_response(

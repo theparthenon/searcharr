@@ -18,9 +18,9 @@ from bot.callbacks.base import (
     process_tags,
     update_media_message
 )
-from config import settings
+import settings
 
-logger = set_up_logger("callbacks.radarr", False, False)
+logger = set_up_logger("callbacks.radarr")
 
 # Create a config object for Radarr-specific settings
 RADARR_CONFIG = {

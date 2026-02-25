@@ -10,7 +10,7 @@ from bot.utils.conversation import get_add_data, update_add_data
 from bot.utils.formatting import prepare_response
 from bot.utils.log import set_up_logger
 
-logger = set_up_logger("callbacks.base.tag_selection", False, False)
+logger = set_up_logger("callbacks.base.tag_selection")
 
 
 async def handle_tag_selection(update, context, service, service_config, convo, cid, i, op_flags):

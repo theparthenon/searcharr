@@ -11,7 +11,7 @@ import uuid
 from bot.utils.database import execute_query, execute_insert, get_connection
 from bot.utils.log import set_up_logger
 
-logger = set_up_logger("conversation", False, False)
+logger = set_up_logger("conversation")
 
 
 def generate_cid():

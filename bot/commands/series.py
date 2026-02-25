@@ -11,7 +11,7 @@ from bot.utils.conversation import generate_cid, create_conversation
 from bot.utils.auth import authenticated
 from bot.utils.text import strip_entities, translate
 from bot.utils.formatting import prepare_response
-from config import settings
+import settings
 
 
 async def series_command(update, context, bot):

@@ -8,9 +8,9 @@ https://github.com/toddrob99/searcharr
 from bot.utils.auth import add_user, authenticated
 from bot.utils.text import strip_entities, translate
 from bot.utils.log import set_up_logger
-from config import settings
+import settings
 
-logger = set_up_logger("commands.start", False, False)
+logger = set_up_logger("commands.start")
 
 
 async def start_command(update, context, bot):

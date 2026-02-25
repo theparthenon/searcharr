@@ -4,7 +4,7 @@ import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from api.readarr import Readarr
-from config import settings
+import settings
 
 def test_readarr_initialization():
     """Test that Readarr client can be initialized and version detected"""

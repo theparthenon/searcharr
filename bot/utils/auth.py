@@ -8,7 +8,7 @@ https://github.com/toddrob99/searcharr
 from bot.utils.database import execute_query, execute_insert, get_connection
 from bot.utils.log import set_up_logger
 
-logger = set_up_logger("auth", False, False)
+logger = set_up_logger("auth")
 
 
 def add_user(id, username, admin=""):

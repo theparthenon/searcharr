@@ -8,9 +8,9 @@ https://github.com/toddrob99/searcharr
 import uuid
 
 from bot.utils.log import set_up_logger
-from config import settings
+import settings
 
-logger = set_up_logger("config.validator", False, False)
+logger = set_up_logger("config.validator")
 
 
 def validate_settings():

@@ -10,9 +10,9 @@ from bot.utils.conversation import generate_cid, create_conversation
 from bot.utils.formatting import prepare_response_users
 from bot.utils.text import translate
 from bot.utils.log import set_up_logger
-from config import settings
+import settings
 
-logger = set_up_logger("commands.users", False, False)
+logger = set_up_logger("commands.users")
 
 
 async def users_command(update, context, bot):

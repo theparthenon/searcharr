@@ -4,7 +4,7 @@ import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from api.sonarr import Sonarr
-from config import settings
+import settings
 
 def test_sonarr_initialization():
     """Test that Sonarr client can be initialized and version detected"""

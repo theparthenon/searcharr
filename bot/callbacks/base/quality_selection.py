@@ -11,7 +11,7 @@ from bot.utils.formatting import prepare_response
 from bot.utils.text import translate
 from bot.utils.log import set_up_logger
 
-logger = set_up_logger("callbacks.base.quality_selection", False, False)
+logger = set_up_logger("callbacks.base.quality_selection")
 
 
 async def check_quality_selection(update, context, service, kind, convo, cid, i):

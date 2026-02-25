@@ -9,7 +9,7 @@ from telegram import InputMediaPhoto
 from telegram.error import BadRequest
 from bot.utils.log import set_up_logger
 
-logger = set_up_logger("callbacks.base.media_message", False, False)
+logger = set_up_logger("callbacks.base.media_message")
 
 async def update_media_message(message, media_url, caption=None, reply_markup=None, fallback_url="https://artworks.thetvdb.com/banners/images/missing/movie.jpg"):
     """Sends or edits a message with photo media, falling back to a default image if the original fails.

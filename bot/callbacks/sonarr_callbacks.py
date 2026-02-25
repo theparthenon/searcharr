@@ -18,9 +18,9 @@ from bot.callbacks.base import (
     process_tags,
     update_media_message
 )
-from config import settings
+import settings
 
-logger = set_up_logger("callbacks.sonarr", False, False)
+logger = set_up_logger("callbacks.sonarr")
 
 # Create a config object for Sonarr-specific settings
 SONARR_CONFIG = {

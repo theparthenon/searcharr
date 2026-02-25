@@ -9,9 +9,9 @@ import os
 import yaml
 
 from bot.utils.log import set_up_logger
-from config import settings
+import settings
 
-logger = set_up_logger("language", False, False)
+logger = set_up_logger("language")
 
 # Module-level variables to store loaded language data
 _lang = None

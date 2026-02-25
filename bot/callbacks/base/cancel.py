@@ -9,7 +9,7 @@ from bot.utils.conversation import delete_conversation
 from bot.utils.text import translate
 from bot.utils.log import set_up_logger
 
-logger = set_up_logger("callbacks.base.cancel", False, False)
+logger = set_up_logger("callbacks.base.cancel")
 
 
 async def handle_cancel(update, context, convo, cid, i, op):

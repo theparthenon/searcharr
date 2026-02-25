@@ -8,7 +8,7 @@ https://github.com/toddrob99/searcharr
 from bot.utils.log import set_up_logger
 from config.language import translate as _translate
 
-logger = set_up_logger("text", False, False)
+logger = set_up_logger("text")
 
 
 def strip_entities(message):

@@ -7,7 +7,7 @@ https://github.com/toddrob99/searcharr
 """
 from telegram.ext import CommandHandler
 
-from config import settings
+import settings
 from bot.commands.start import start_command
 from bot.commands.help import help_command
 from bot.commands.series import series_command

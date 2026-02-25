@@ -6,7 +6,7 @@ By Todd Roberts
 https://github.com/toddrob99/searcharr
 """
 import requests
-from log import set_up_logger
+from bot.utils.log import set_up_logger
 
 
 class ApiClient(object):
@@ -22,7 +22,7 @@ class ApiClient(object):
             verbose (bool, optional): Enable verbose logging. Defaults to False.
         """
         self.service_name = service_name.lower()
-        self.logger = set_up_logger(f"searcharr.{self.service_name}", verbose, False)
+        self.logger = set_up_logger(f"searcharr.{self.service_name}")
         self.logger.debug("Logging started!")
         
         # Validate inputs

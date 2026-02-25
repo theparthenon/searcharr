@@ -1,5 +1,5 @@
 argparse
 requests
-python-telegram-bot
+python-telegram-bot>=21.0,<23.0
 pyyaml
 arrow

@@ -9,7 +9,7 @@ from bot.callbacks.base.media_message import update_media_message
 from bot.utils.formatting import prepare_response
 from bot.utils.log import set_up_logger
 
-logger = set_up_logger("callbacks.base.navigation", False, False)
+logger = set_up_logger("callbacks.base.navigation")
 
 
 async def handle_navigation(update, context, kind, convo, cid, i, op):

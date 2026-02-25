@@ -14,7 +14,7 @@ from bot.callbacks.radarr_callbacks import handle_radarr_callback
 from bot.callbacks.readarr_callbacks import handle_readarr_callback
 from bot.callbacks.user_callbacks import handle_user_callback
 
-logger = set_up_logger("callbacks.handler", False, False)
+logger = set_up_logger("callbacks.handler")
 
 
 def main_callback_handler(bot):
