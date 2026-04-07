@@ -27,14 +27,13 @@ def generate_cid():
         try:
             r = cur.execute(q, (u,))
         except Exception as e:
-            r = None
             logger.error(
                 f"Error executing database query to check conversation id uniqueness [{q}]: {e}"
             )
-
-        if not r:
+            con.close()
             return None
-        elif not len(r.fetchall()):
+
+        if not len(r.fetchall()):
             con.close()
             return u
         else:

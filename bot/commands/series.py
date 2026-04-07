@@ -58,20 +58,23 @@ async def series_command(update, context, bot):
     
     # Look up series
     results = bot.sonarr.lookup_series(title)
-    
-    # Create conversation
+
+    # Handle no results before touching the database
+    if not results:
+        await update.message.reply_text(translate("no_matching_series"))
+        return
+
     cid = generate_cid()
+    if not cid:
+        await update.message.reply_text(translate("unexpected_error"))
+        return
+
     create_conversation(
         id=cid,
         username=str(update.message.from_user.username),
         kind="series",
         results=results,
     )
-
-    # Handle no results
-    if not results:
-        await update.message.reply_text(translate("no_matching_series"))
-        return
     
     # Prepare response for first result
     r = results[0]

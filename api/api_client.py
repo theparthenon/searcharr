@@ -286,7 +286,7 @@ class ApiClient(object):
             params (dict, optional): Query parameters. Defaults to {}.
             
         Returns:
-            dict: Response JSON or None on failure
+            dict: Response JSON. Raises requests.HTTPError on non-2xx response.
         """
         url = self.api_url.format(endpoint=endpoint)
         for k, v in params.items():
@@ -295,9 +295,7 @@ class ApiClient(object):
         r = requests.get(url)
         if r.status_code not in [200, 201, 202, 204]:
             r.raise_for_status()
-            return None
-        else:
-            return r.json()
+        return r.json()
 
     def _api_post(self, endpoint, params={}):
         """Make a POST request to the API.
@@ -307,13 +305,11 @@ class ApiClient(object):
             params (dict, optional): Request JSON body. Defaults to {}.
             
         Returns:
-            dict: Response JSON or None on failure
+            dict: Response JSON. Raises requests.HTTPError on non-2xx response.
         """
         url = self.api_url.format(endpoint=endpoint)
         self.logger.debug(f"Submitting POST request: [{url}]; params: [{params}]")
         r = requests.post(url, json=params)
         if r.status_code not in [200, 201, 202, 204]:
             r.raise_for_status()
-            return None
-        else:
-            return r.json()
+        return r.json()

@@ -66,20 +66,23 @@ async def movie_command(update, context, bot):
     
     # Look up movies
     results = bot.radarr.lookup_movie(title)
-    
-    # Create conversation
+
+    # Handle no results before touching the database
+    if not results:
+        await update.message.reply_text(translate("no_matching_movies"))
+        return
+
     cid = generate_cid()
+    if not cid:
+        await update.message.reply_text(translate("unexpected_error"))
+        return
+
     create_conversation(
         id=cid,
         username=str(update.message.from_user.username),
         kind="movie",
         results=results,
     )
-    
-    # Handle no results
-    if not results:
-        await update.message.reply_text(translate("no_matching_movies"))
-        return
     
     # Prepare response for first result
     r = results[0]
