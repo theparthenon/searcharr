@@ -5,6 +5,7 @@ logs/
 *settings.py
 
 .vscode/
+.claude/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

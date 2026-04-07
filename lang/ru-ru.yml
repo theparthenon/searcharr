@@ -4,7 +4,6 @@ language_label: Русский
 movie: фильм
 series: сериал
 season: сезон
-book: книга
 title: название
 title_here: название сюда
 password: пароль
@@ -60,9 +59,3 @@ help_sonarr: Используйте {series_commands} для добавлени�
 help_radarr: Используйте {movie_commands} для добавления фильмов в Radarr.
 no_features: Извините, но все мои функции, на данный момент, отключены.
 admin_help: У вас есть права администратора, поэтому вы можете использовать {commands} для управления пользователям.
-readarr_disabled: Извините, но поддержка книг отключена.
-include_book_title_in_cmd: Добавьте в команду название книги, например {commands}
-no_matching_books: Извините, но я не смог найти подходящие книги.
-help_readarr: Используйте {book_commands}, для добавления сериалов в Readarr.
-no_metadata_profiles: "Ошибка при добавлении {kind}: профили метаданных не включены для {app}! Пожалуйста, проверьте настройки Searcharr и повторите попытку."
-add_metadata_button: "Добавить метаданные: {metadata}"
