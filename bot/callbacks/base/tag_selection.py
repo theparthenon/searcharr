@@ -58,13 +58,20 @@ async def handle_tag_selection(update, context, service, service_config, convo, 
             logger.debug(f"Adding tag [{tag_id}]")
             update_add_data(cid, "t", ",".join(tag_ids))
         
-        # Get all available tags
+        # Get all available tags, minus any already selected
         all_tags = service.get_filtered_tags(
             service_config.get("user_selectable_tags", []),
             service_config.get("forced_tags", []),
         )
-        
-        # Prepare response with updated tag selection
+        selected_ids = set(get_add_data(cid).get("t", "").split(","))
+        remaining_tags = [t for t in all_tags if str(t["id"]) not in selected_ids]
+
+        if not remaining_tags:
+            # All tags selected — fall through to next step
+            await query.answer()
+            return False
+
+        # Prepare response with remaining (unselected) tags
         reply_message, reply_markup = prepare_response(
             convo["type"],
             r,
@@ -72,9 +79,9 @@ async def handle_tag_selection(update, context, service, service_config, convo, 
             i,
             len(convo["results"]),
             add=True,
-            tags=all_tags,
+            tags=remaining_tags,
         )
-        
+
         await update_media_message(
                 query.message,
                 r["remotePoster"],
