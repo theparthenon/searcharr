@@ -1,6 +1,6 @@
-FROM python:3.11-slim
+FROM python:3.13-slim
 
-LABEL Name=Searcharr Version=1.2
+LABEL Name=Searcharr
 
 WORKDIR /app
 ADD . /app
