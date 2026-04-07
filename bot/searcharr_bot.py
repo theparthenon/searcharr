@@ -122,7 +122,7 @@ class SearcharrBot:
         self.logger.info("Starting Searcharr bot...")
         
         # Build the application
-        application = ApplicationBuilder().token(self.token).build()
+        application = ApplicationBuilder().token(self.token).job_queue(None).build()
         
         # Register command handlers from each module
         register_commands(application, self)
