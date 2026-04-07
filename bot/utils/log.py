@@ -46,15 +46,12 @@ def set_up_logger(logger_name, verbose=None, console_logging=None):
     log_level = logging.DEBUG if verbose else logging.INFO
 
     # Create logger if it doesn't exist
-    if logger_name in logging.Logger.manager.loggerDict:
-        logger = logging.getLogger(logger_name)
-        logger.setLevel(log_level)
-        # Clear existing handlers to avoid duplicate logs
-        if logger.handlers:
-            logger.handlers.clear()
-    else:
-        logger = logging.getLogger(logger_name)
-        logger.setLevel(log_level)
+    logger = logging.getLogger(logger_name)
+    logger.setLevel(log_level)
+    logger.propagate = False
+    # Clear existing handlers to avoid duplicate logs on re-initialization
+    if logger.handlers:
+        logger.handlers.clear()
 
     # Define log format
     log_format = logging.Formatter(
