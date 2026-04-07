@@ -1,6 +1,6 @@
 """
 Searcharr
-Sonarr, Radarr & Readarr Telegram Bot
+Sonarr & Radarr Telegram Bot
 Help Command Handler
 By Todd Roberts
 https://github.com/toddrob99/searcharr
@@ -65,20 +65,6 @@ async def help_command(update, context, bot):
                     [
                         f"`/{c} {translate('title').title()}`"
                         for c in settings.radarr_movie_command_aliases
-                    ]
-                ),
-            )
-        )
-    
-    # Readarr help
-    if settings.readarr_enabled:
-        help_text.append(
-            translate(
-                "help_readarr",
-                book_commands=" OR ".join(
-                    [
-                        f"`/{c} {translate('title').title()}`"
-                        for c in settings.readarr_book_command_aliases
                     ]
                 ),
             )

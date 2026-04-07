@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Searcharr
-Sonarr, Radarr & Readarr Telegram Bot
+Sonarr & Radarr Telegram Bot
 By Todd Roberts
 https://github.com/toddrob99/searcharr
 """

@@ -1,6 +1,6 @@
 """
 Searcharr
-Sonarr, Radarr & Readarr Telegram Bot
+Sonarr & Radarr Telegram Bot
 Main Bot Class
 By Todd Roberts
 https://github.com/toddrob99/searcharr
@@ -9,7 +9,6 @@ from telegram.ext import ApplicationBuilder, CallbackQueryHandler
 
 from api.sonarr import Sonarr
 from api.radarr import Radarr
-from api.readarr import Readarr
 from bot.utils.log import set_up_logger
 from bot.utils.database import init_db
 from bot.commands import register_commands
@@ -43,7 +42,6 @@ class SearcharrBot:
         # Initialize service clients
         self.sonarr = self._init_service("sonarr", verbose)
         self.radarr = self._init_service("radarr", verbose)
-        self.readarr = self._init_service("readarr", verbose)
         
         # Check and validate settings
         self._validate_settings()
@@ -52,7 +50,7 @@ class SearcharrBot:
         """Initialize a service client with error handling.
         
         Args:
-            service_name (str): Name of the service to initialize (sonarr, radarr, readarr)
+            service_name (str): Name of the service to initialize (sonarr, radarr)
             verbose (bool): Enable verbose logging
             
         Returns:
@@ -84,11 +82,6 @@ class SearcharrBot:
                 from bot.services.radarr_service import configure_radarr
                 client = Radarr(settings.radarr_url, settings.radarr_api_key, verbose)
                 return configure_radarr(client)
-            
-            elif service_name == "readarr":
-                from bot.services.readarr_service import configure_readarr
-                client = Readarr(settings.readarr_url, settings.readarr_api_key, verbose)
-                return configure_readarr(client)
             
             else:
                 self.logger.error(f"Unknown service: {service_name}")

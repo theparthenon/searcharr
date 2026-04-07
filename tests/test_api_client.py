@@ -35,19 +35,6 @@ def test_api_client_initialization():
     else:
         print("WARNING: Radarr is not properly configured - skipping")
     
-    # Test Readarr if enabled
-    if settings.readarr_enabled and settings.readarr_url and settings.readarr_api_key:
-        try:
-            readarr_client = ApiClient(settings.readarr_url, settings.readarr_api_key, "readarr", verbose=True)
-            assert readarr_client is not None
-            assert readarr_client.version is not None
-            print(f"Initialized ApiClient for Readarr, version: {readarr_client.version}")
-        except Exception as e:
-            print(f"Error initializing Readarr client: {e}")
-            return False
-    else:
-        print("WARNING: Readarr is not properly configured - skipping")
-    
     return True
 
 def test_base_functionality():
@@ -93,27 +80,6 @@ def test_base_functionality():
             print(f"Found {len(folders)} root folders in Sonarr")
         except Exception as e:
             print(f"Error testing base functionality with Sonarr: {e}")
-            return False
-    
-    # Test with Readarr
-    if settings.readarr_enabled and settings.readarr_url and settings.readarr_api_key:
-        try:
-            print("\n--- Evaluating Readarr ---")
-            client = ApiClient(settings.readarr_url, settings.readarr_api_key, "readarr", verbose=True)
-            
-            # Test tag methods
-            tags = client.get_all_tags()
-            print(f"Found {len(tags)} tags in Readarr")
-            
-            # Test quality profiles
-            profiles = client.get_all_quality_profiles()
-            print(f"Found {len(profiles) if profiles else 0} quality profiles in Readarr")
-            
-            # Test root folders
-            folders = client.get_root_folders()
-            print(f"Found {len(folders)} root folders in Readarr")
-        except Exception as e:
-            print(f"Error testing base functionality with Readarr: {e}")
             return False
     
     return True

@@ -1,6 +1,6 @@
 """
 Searcharr
-Sonarr, Radarr & Readarr Telegram Bot
+Sonarr & Radarr Telegram Bot
 Callback Handler Package Initialization
 By Todd Roberts
 https://github.com/toddrob99/searcharr
@@ -11,5 +11,4 @@ from bot.callbacks.callback_handler import main_callback_handler
 import bot.callbacks.base
 import bot.callbacks.sonarr_callbacks
 import bot.callbacks.radarr_callbacks
-import bot.callbacks.readarr_callbacks
 import bot.callbacks.user_callbacks

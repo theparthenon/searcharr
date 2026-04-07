@@ -1,6 +1,6 @@
 """
 Searcharr
-Sonarr, Radarr & Readarr Telegram Bot
+Sonarr & Radarr Telegram Bot
 Settings Validator
 By Todd Roberts
 https://github.com/toddrob99/searcharr
@@ -26,7 +26,7 @@ def validate_settings():
     # Check user password
     if getattr(settings, "searcharr_password", "") == "":
         logger.warning(
-            'Password is blank. This will allow anyone to add series/movies/books using your bot. '
+            'Password is blank. This will allow anyone to add series/movies using your bot. '
             'If this is unexpected, set a password in settings.py (searcharr_password="your password").'
         )
         

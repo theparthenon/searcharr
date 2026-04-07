@@ -1,6 +1,6 @@
 """
 Searcharr
-Sonarr, Radarr & Readarr Telegram Bot
+Sonarr & Radarr Telegram Bot
 Command Handlers Registration
 By Todd Roberts
 https://github.com/toddrob99/searcharr
@@ -12,7 +12,6 @@ from bot.commands.start import start_command
 from bot.commands.help import help_command
 from bot.commands.series import series_command
 from bot.commands.movie import movie_command
-from bot.commands.book import book_command
 from bot.commands.users import users_command
 
 
@@ -53,14 +52,6 @@ def register_commands(application, bot):
             logger.debug(f"Registering [/{cmd}] as a movie command")
             application.add_handler(
                 CommandHandler(cmd, lambda update, context: movie_command(update, context, bot))
-            )
-    
-    # Register book commands if readarr is enabled
-    if bot.readarr:
-        for cmd in settings.readarr_book_command_aliases:
-            logger.debug(f"Registering [/{cmd}] as a book command")
-            application.add_handler(
-                CommandHandler(cmd, lambda update, context: book_command(update, context, bot))
             )
     
     # Register users management commands

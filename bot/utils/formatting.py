@@ -1,12 +1,10 @@
 """
 Searcharr
-Sonarr, Radarr & Readarr Telegram Bot
+Sonarr & Radarr Telegram Bot
 Message Formatting Utilities
 By Todd Roberts
 https://github.com/toddrob99/searcharr
 """
-from datetime import datetime
-
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
 from bot.utils.text import translate
@@ -24,14 +22,13 @@ def prepare_response(
     add=False,
     paths=None,
     quality_profiles=None,
-    metadata_profiles=None,
     monitor_options=None,
     tags=None,
 ):
     """Prepare a response message and keyboard markup.
     
     Args:
-        kind (str): The type of content ("series", "movie", "book")
+        kind (str): The type of content ("series", "movie")
         r (dict): The content data
         cid (str): The conversation ID
         i (int): The current index
@@ -39,7 +36,6 @@ def prepare_response(
         add (bool, optional): Whether this is for adding content. Defaults to False.
         paths (list, optional): List of path options. Defaults to None.
         quality_profiles (list, optional): List of quality profile options. Defaults to None.
-        metadata_profiles (list, optional): List of metadata profile options. Defaults to None.
         monitor_options (list, optional): List of monitor options. Defaults to None.
         tags (list, optional): List of tag options. Defaults to None.
         
@@ -70,12 +66,6 @@ def prepare_response(
                 "TMDB", url=f"https://www.themoviedb.org/movie/{r['tmdbId']}"
             )
         )
-    elif kind == "book" and r["links"]:
-        for link in r["links"]:
-            keyboardNavRow.append(
-                InlineKeyboardButton(link["name"], url=link["url"])
-            )
-    
     # Add IMDb links for movies and series
     if kind in ["series", "movie"]:
         if r["imdbId"]:
@@ -137,17 +127,6 @@ def prepare_response(
                         InlineKeyboardButton(
                             translate("add_quality_button", quality=q["name"]),
                             callback_data=f"{cid}^^^{i}^^^add^^q={q['id']}",
-                        )
-                    ],
-                )
-        elif metadata_profiles:
-            # Add metadata profile selection buttons
-            for m in metadata_profiles:
-                keyboard.append(
-                    [
-                        InlineKeyboardButton(
-                            translate("add_metadata_button", metadata=m["name"]),
-                            callback_data=f"{cid}^^^{i}^^^add^^m={m['id']}",
                         )
                     ],
                 )
@@ -214,16 +193,6 @@ def prepare_response(
         ]
     elif kind == "movie":
         reply_message = f"{r['title']}{' (' + str(r['year']) + ')' if r['year'] and str(r['year']) not in r['title'] else ''}{' - ' + str(r['runtime']) + ' min' if r['runtime'] else ''} - {r['status'].title()}\n\n{r['overview']}"[
-            0:1024
-        ]
-    elif kind == "book":
-        try:
-            release = datetime.strptime(
-                r["releaseDate"], "%Y-%m-%dT%H:%M:%SZ"
-            ).strftime("%b %d, %Y")
-        except (ValueError, TypeError):
-            release = "???"
-        reply_message = f"{r['author']['authorName']} - {r['title']}{' - ' + r['disambiguation'] if r['disambiguation'] else ''}{' - ' + r['seriesTitle'] if r['seriesTitle'] else ''} ({release})\n\n{r['overview']}"[
             0:1024
         ]
     else:

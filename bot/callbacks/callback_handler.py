@@ -1,6 +1,6 @@
 """
 Searcharr
-Sonarr, Radarr & Readarr Telegram Bot
+Sonarr & Radarr Telegram Bot
 Main Callback Router
 By Todd Roberts
 https://github.com/toddrob99/searcharr
@@ -11,7 +11,6 @@ from bot.utils.log import set_up_logger
 # Import service-specific callback handlers
 from bot.callbacks.sonarr_callbacks import handle_sonarr_callback
 from bot.callbacks.radarr_callbacks import handle_radarr_callback
-from bot.callbacks.readarr_callbacks import handle_readarr_callback
 from bot.callbacks.user_callbacks import handle_user_callback
 
 logger = set_up_logger("callbacks.handler")
@@ -62,8 +61,6 @@ def main_callback_handler(bot):
                 await handle_sonarr_callback(update, context, bot, convo, cid, i, op, op_flags)
             elif convo["type"] == "movie":
                 await handle_radarr_callback(update, context, bot, convo, cid, i, op, op_flags)
-            elif convo["type"] == "book":
-                await handle_readarr_callback(update, context, bot, convo, cid, i, op, op_flags)
             elif convo["type"] == "users":
                 await handle_user_callback(update, context, bot, convo, cid, i, op, op_flags)
             else:

@@ -4,7 +4,6 @@ language_label: Lietuvių
 movie: filmai
 series: serialai
 season: sezonas
-book: knyga
 title: pavadinimas
 title_here: pavadinimas čia
 password: slaptažodis
@@ -60,9 +59,3 @@ help_sonarr: Naudokite {series_commands} norėdami įtraukti serialą į Sonarr.
 help_radarr: Naudokite {movie_commands} norėdami įtraukti filmą į Radarr.
 no_features: Atsiprašome, bet šiuo metu visos funkcijos išjungtos.
 admin_help: Kadangi esate administratorius, galite administruoti vartotojus komandų {commands} pagalba.
-readarr_disabled: Atsiprašau, bet negalima ieškoti knygų.
-include_book_title_in_cmd: Prašome kartu su komanda parašyti knyga pavadinimą, pvz. {commands}
-no_matching_books: Atsiprašau, bet toks knygos nerastas.
-help_readarr: Naudokite {book_commands} norėdami įtraukti knyga į Readarr.
-no_metadata_profiles: "Klaida {kind}: neaprašyti {app} metaduomenų profiliai! Patikrinkite Searcharr konfigūraciją ir bandykite dar kartą."
-add_metadata_button: "Metadata: {metadata}"

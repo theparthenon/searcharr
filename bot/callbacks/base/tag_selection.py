@@ -1,6 +1,6 @@
 """
 Searcharr
-Sonarr, Radarr & Readarr Telegram Bot
+Sonarr & Radarr Telegram Bot
 Tag Selection Utilities
 By Todd Roberts
 https://github.com/toddrob99/searcharr
@@ -19,7 +19,7 @@ async def handle_tag_selection(update, context, service, service_config, convo, 
     Args:
         update: The update with the callback query
         context: The callback context
-        service: The service client (Sonarr, Radarr, Readarr)
+        service: The service client (Sonarr, Radarr)
         service_config: Configuration for the service (settings.sonarr_*, etc.)
         convo: The conversation data
         cid: The conversation ID
@@ -98,7 +98,7 @@ async def process_tags(service, service_config, cid, user):
     """Process tags for content (username tag and forced tags).
     
     Args:
-        service: The service client (Sonarr, Radarr, Readarr)
+        service: The service client (Sonarr, Radarr)
         service_config: Configuration for the service
         cid: The conversation ID
         user: The user who triggered the action

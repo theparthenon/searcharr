@@ -1,6 +1,6 @@
 """
 Searcharr
-Sonarr, Radarr & Readarr Telegram Bot
+Sonarr & Radarr Telegram Bot
 Users Command Handler
 By Todd Roberts
 https://github.com/toddrob99/searcharr

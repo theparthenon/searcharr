@@ -1,6 +1,6 @@
 """
 Searcharr
-Sonarr, Radarr & Readarr Telegram Bot
+Sonarr & Radarr Telegram Bot
 Path Selection Utility
 By Todd Roberts
 https://github.com/toddrob99/searcharr
@@ -20,7 +20,7 @@ async def check_path_selection(update, context, service, kind, convo, cid, i):
     Args:
         update: The update with the callback query
         context: The callback context
-        service: The service client (Sonarr, Radarr, Readarr)
+        service: The service client (Sonarr, Radarr)
         kind: The content kind (series, movie, book)
         convo: The conversation data
         cid: The conversation ID
@@ -66,7 +66,7 @@ async def check_path_selection(update, context, service, kind, convo, cid, i):
         else:
             # No paths available, show error and cancel
             delete_conversation(cid)
-            service_name = "Sonarr" if kind == "series" else "Radarr" if kind == "movie" else "Readarr"
+            service_name = "Sonarr" if kind == "series" else "Radarr"
             await query.message.reply_text(
                 translate(
                     "no_root_folders",

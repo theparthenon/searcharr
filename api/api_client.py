@@ -1,6 +1,6 @@
 """
 Searcharr
-Sonarr, Radarr & Readarr Telegram Bot
+Sonarr & Radarr Telegram Bot
 Base API Client
 By Todd Roberts
 https://github.com/toddrob99/searcharr
@@ -10,7 +10,7 @@ from bot.utils.log import set_up_logger
 
 
 class ApiClient(object):
-    """Base API client for *arr services (Sonarr, Radarr, Readarr)"""
+    """Base API client for *arr services (Sonarr, Radarr)"""
 
     def __init__(self, api_url, api_key, service_name, verbose=False):
         """Initialize the API client
@@ -18,7 +18,7 @@ class ApiClient(object):
         Args:
             api_url (str): Base URL for the service API (e.g. http://localhost:8989)
             api_key (str): API key for authentication
-            service_name (str): Name of the service (sonarr, radarr, readarr)
+            service_name (str): Name of the service (sonarr, radarr)
             verbose (bool, optional): Enable verbose logging. Defaults to False.
         """
         self.service_name = service_name.lower()
@@ -63,8 +63,7 @@ class ApiClient(object):
         Returns:
             str: Version string of the service if found, None otherwise
         """
-        # Try newest API version first (v3 for Sonarr/Radarr, v1 for Readarr)
-        api_version = "v3" if self.service_name in ["sonarr", "radarr"] else "v1"
+        api_version = "v3"
         try:
             temp_api_url = f"{api_url}/api/{api_version}/{{endpoint}}?apikey={api_key}"
             self.api_url = temp_api_url  # Temporarily set for _api_get
@@ -114,10 +113,6 @@ class ApiClient(object):
             if self.version and not self.version.startswith("0."):
                 return f"{api_url}/api/v3/{{endpoint}}?apikey={api_key}"
             return f"{api_url}/api/{{endpoint}}?apikey={api_key}"
-        elif self.service_name == "readarr":
-            if self.version and not self.version.startswith("0."):
-                return f"{api_url}/api/v1/{{endpoint}}?apikey={api_key}"
-            return f"{api_url}/api/{{endpoint}}?apikey={api_key}"
         else:
             # Default format if service is unknown
             return f"{api_url}/api/{{endpoint}}?apikey={api_key}"
@@ -128,7 +123,7 @@ class ApiClient(object):
         Returns:
             list: List of root folder objects with path, freeSpace, totalSpace, and id
         """
-        endpoint = "RootFolder" if self.service_name != "readarr" else "rootfolder"
+        endpoint = "RootFolder"
         r = self._api_get(endpoint, {})
         if not r:
             return []
@@ -264,8 +259,6 @@ class ApiClient(object):
                 endpoint = "profile"
             else:
                 endpoint = "qualityProfile"
-        elif self.service_name == "readarr":
-            endpoint = "qualityProfile"
         else:
             endpoint = "qualityprofile"
             
