@@ -95,7 +95,7 @@ def prepare_response(
                     [
                         InlineKeyboardButton(
                             translate("add_tag_button", tag=tag["label"]),
-                            callback_data=f"{cid}^^^{i}^^^add^^tt={tag['id']}",
+                            callback_data=f"{cid}^^^{i}^^^add^^^tt={tag['id']}",
                         )
                     ],
                 )
@@ -104,7 +104,7 @@ def prepare_response(
                 [
                     InlineKeyboardButton(
                         translate("finished_tagging_button"),
-                        callback_data=f"{cid}^^^{i}^^^add^^td=1",
+                        callback_data=f"{cid}^^^{i}^^^add^^^td=1",
                     )
                 ],
             )
@@ -115,7 +115,7 @@ def prepare_response(
                     [
                         InlineKeyboardButton(
                             translate("monitor_button", option=o),
-                            callback_data=f"{cid}^^^{i}^^^add^^m={k}",
+                            callback_data=f"{cid}^^^{i}^^^add^^^m={k}",
                         )
                     ],
                 )
@@ -126,7 +126,7 @@ def prepare_response(
                     [
                         InlineKeyboardButton(
                             translate("add_quality_button", quality=q["name"]),
-                            callback_data=f"{cid}^^^{i}^^^add^^q={q['id']}",
+                            callback_data=f"{cid}^^^{i}^^^add^^^q={q['id']}",
                         )
                     ],
                 )
@@ -137,7 +137,7 @@ def prepare_response(
                     [
                         InlineKeyboardButton(
                             translate("add_path_button", path=p["path"]),
-                            callback_data=f"{cid}^^^{i}^^^add^^p={p['id']}",
+                            callback_data=f"{cid}^^^{i}^^^add^^^p={p['id']}",
                         )
                     ],
                 )
@@ -178,7 +178,7 @@ def prepare_response(
             [
                 InlineKeyboardButton(
                     translate("add_series_anime_button"),
-                    callback_data=f"{cid}^^^{i}^^^add^^st=a",
+                    callback_data=f"{cid}^^^{i}^^^add^^^st=a",
                 )
             ]
         )
