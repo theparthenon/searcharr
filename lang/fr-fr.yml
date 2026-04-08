@@ -4,7 +4,6 @@ language_label: Français
 movie: film
 series: séries
 season: saison
-book: livre
 title: titre
 title_here: titre ici
 password: mot de passe
@@ -60,9 +59,3 @@ help_sonarr: Utilisez {series_commands} pour ajouter une série à Sonarr.
 help_radarr: Utilisez {movie_commands} pour ajouter un film à Radarr.
 no_features: Désolé, mais toutes mes fonctions sont actuellement désactivées.
 admin_help: Puisque vous êtes un administrateur, vous pouvez également utiliser les {commands} pour gérer les utilisateurs.
-readarr_disabled: Désolé, mais le support des livres est désactivé.
-include_book_title_in_cmd: "Veuillez inclure le titre du livre dans la commande, par exemple : {commands}"
-no_matching_books: Désolé, mais je n'ai pas trouvé de livres correspondants.
-help_readarr: Utilisez {book_commands} pour ajouter un livre à Readarr.
-no_metadata_profiles: "Erreur lors de l'ajout {kind} : aucun profil de metadata activé pour {app} ! Veuillez vérifier votre configuration Searcharr et réessayer."
-add_metadata_button: "Metadata: {metadata}"

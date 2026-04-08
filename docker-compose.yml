@@ -6,7 +6,6 @@ services:
     volumes:
       - ./data:/app/data
       - ./logs:/app/logs
-      - ./settings.py:/app/settings.py
     environment:
       - TZ=America/New_York
     restart: unless-stopped
