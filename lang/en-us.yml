@@ -18,6 +18,7 @@ radarr_disabled: Sorry, but movie support is disabled.
 include_movie_title_in_cmd: Please include the movie title in the command, e.g. {commands}
 no_matching_movies: Sorry, but I didn't find any matching movies.
 sonarr_disabled: Sorry, but series support is disabled.
+anime_disabled: Sorry, but anime support is disabled.
 include_series_title_in_cmd: Please include the series title in the command, e.g. {commands}
 no_matching_series: Sorry, but I didn't find any matching series.
 no_users_found: Sorry, but I didn't find any users. That seems wrong...
@@ -55,6 +56,7 @@ make_admin_button: Make Admin
 remove_admin_button: Remove Admin
 done: Done
 listing_users_pagination: Listing Searcharr users {page_info}.
+help_anime: Use {series_commands} to add a series to Sonarr as an Anime.
 help_sonarr: Use {series_commands} to add a series to Sonarr.
 help_radarr: Use {movie_commands} to add a movie to Radarr.
 no_features: Sorry, but all of my features are currently disabled.
